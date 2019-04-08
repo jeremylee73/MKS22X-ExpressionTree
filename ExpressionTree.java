@@ -91,8 +91,13 @@ public class ExpressionTree{
   /*return the expression as a postfix notation string without parenthesis*/
   /* The sample tree would be: "3 2 10 * +"     */
   public String toStringPostfix(){
-    /*you are to write this method*/
-    return "";
+    String ans = "";
+    if (isValue()){
+      return getValue() + " ";
+    }
+    ans += getLeft().toStringPostfix() + getRight().toStringPostfix() + getOp() + " ";
+    ans = ans.substring(0,ans.length()-1);
+    return ans;
   }
 
   /*return the expression as a prefix notation string without parenthesis*/
