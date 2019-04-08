@@ -106,8 +106,10 @@ public class ExpressionTree{
   /* The sample tree would be: "+ 3 * 2 10"     */
 
   public String toStringPrefix(){
-    /*you are to write this method*/
-    return "";
+    if (isValue()){
+      return getValue() + "";
+    }
+    return getOp()+" "+getLeft().toString()+" "+getRight().toString();
   }
 
   /*return the value of the specified expression tree*/
